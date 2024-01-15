@@ -27,6 +27,12 @@
                 <label for="ngoID">NGO ID:</label>
                 <input type="text" id="ngoID" name="ngoID" required>
             </div>
+
+            <div class="form-group">
+                <label for="adr">Address:</label>
+                <input type="text" id="adr" name="adr" required>
+            </div>
+
             <div class="input_field">
                 <input type="submit" value="Send Request" class="button" name="send_btn">
             </div>
@@ -46,10 +52,11 @@ if(isset($_POST['send_btn']))
     $quantity   = $_POST['quantity'];
     $ngoName    = $_POST['ngoName'];
     $ngoID      = $_POST['ngoID'];
+    $adr        = $_POST['adr'];
 
-    $QUERY = "INSERT INTO donation_request (request, quantity, ngoName, ngoID) VALUES (?, ?, ?, ?)";
+    $QUERY = "INSERT INTO donation_request (request, quantity, ngoName, ngoID, adr) VALUES (?, ?, ?, ?, ?)";
     $stmt = $connec->prepare($QUERY);
-    $stmt->bind_param("ssss", $request, $quantity, $ngoName, $ngoID);
+    $stmt->bind_param("sssss", $request, $quantity, $ngoName, $ngoID, $adr);
     $stmt->execute();
 
     if($stmt->affected_rows > 0)
