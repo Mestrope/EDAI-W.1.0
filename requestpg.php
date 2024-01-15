@@ -13,23 +13,28 @@
         <h1>NGO Donation Requests</h1>
         <form action="#" method="post">
             <div class="form-group">
-                <label>Request:</label>
+                <label for="request">Request:</label>
                 <input type="text" id="request" name="request" required>
             </div>
 
             <div class="form-group">
-                <label>Quantity:</label>
+                <label for="quantity">Quantity:</label>
                 <input type="text" id="quantity" name="quantity" required>
             </div>
 
             <div class="form-group">
-                <label>NGO Name:</label>
+                <label for="ngoName">NGO Name:</label>
                 <input type="text" id="ngoName" name="ngoName" required>
             </div>
 
             <div class="form-group">
-                <label>NGO ID:</label>
+                <label for="ngoID">NGO ID:</label>
                 <input type="text" id="ngoID" name="ngoID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Enter Message:</label>
+                <textarea id="message" name="message" rows="6" required></textarea>
             </div>
 
             <div class="input_field">
@@ -47,16 +52,17 @@
         $quantity   = $_POST['quantity'];
         $ngoName    = $_POST['ngoName'];
         $ngoID      = $_POST['ngoID'];
+        $message    = $_POST['message'];
 
-        $QUERY = "INSERT INTO donation_request values('$request','$quantity','$ngoName','$ngoID')";
+        $QUERY = "INSERT INTO donation_request values('$request','$quantity','$ngoName','$ngoID','$message')";
         $data = mysqli_query($connec,$QUERY);
 
         if($data)
         {
-            echo "data is inserted";
+            //echo "data is inserted";
         }
         else {
-            echo "failed to insert data to databse";
+            echo "failed to insert data to database";
         }
     }
 ?>
