@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h1>NGO Donation Requests</h1>
-        <form action="homepage.php" method="post">
+        <form action="#" method="post">
             <div class="form-group">
                 <label>Request:</label>
                 <input type="text" id="request" name="request" required>
@@ -48,8 +48,8 @@
         $ngoName    = $_POST['ngoName'];
         $ngoID      = $_POST['ngoID'];
 
-        $QUERY = "INSERT INTO FORM values('$request','$quantity','$ngoName','$ngoID');
-        $data = mysqli_query($connec,$QUERY)"
+        $QUERY = "INSERT INTO donation_request values('$request','$quantity','$ngoName','$ngoID')";
+        $data = mysqli_query($connec,$QUERY);
 
         if($data)
         {

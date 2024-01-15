@@ -5,7 +5,7 @@ $username   = "root";
 $password   = "";
 $dbname     = "edai";
 
-$connec = mysqli($servername,$username,$password,$dbname);
+$connec = new mysqli($servername,$username,$password,$dbname);
 
 if($connec)
 {
