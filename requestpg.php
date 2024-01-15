@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGO Donation Requests</title>
-    <link rel="stylesheet" href="donation_style.css">
+    <link rel="stylesheet" href="/StylesForAll/donation_style.css">
 </head>
 <body>
     <div class="container">
         <h1>NGO Donation Requests</h1>
         <form action="#" method="post">
             <div class="form-group">
-                <label>Request:</label>
+                <label for="request">Request:</label>
                 <input type="text" id="request" name="request" required>
             </div>
             <div class="form-group">
-                <label>Quantity:</label>
+                <label for="quantity">Quantity:</label>
                 <input type="text" id="quantity" name="quantity" required>
             </div>
             <div class="form-group">
-                <label>NGO Name:</label>
+                <label for="ngoName">NGO Name:</label>
                 <input type="text" id="ngoName" name="ngoName" required>
             </div>
             <div class="form-group">
-                <label>NGO ID:</label>
+                <label for="ngoID">NGO ID:</label>
                 <input type="text" id="ngoID" name="ngoID" required>
             </div>
             <div class="input_field">
