@@ -38,7 +38,7 @@ if (isset($_SESSION["user"])) {
             }
         }
         ?>
-      <form action="login.php" method="post">
+      <form action="homepage.php" method="post">
         <div class="form-group">
             <input type="email" placeholder="Enter Email:" name="email" class="form-control">
         </div>
