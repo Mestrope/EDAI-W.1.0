@@ -9,7 +9,7 @@ $connec = new mysqli($servername,$username,$password,$dbname);
 
 if($connec)
 {
-    echo "connection to waqass database ok";
+    //echo "connection to waqass database ok";
 }
 else {
     echo "connection to waqass FAILED".mysqli_connect_error();

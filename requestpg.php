@@ -53,7 +53,7 @@
 
         if($data)
         {
-            echo "data is inserted";
+            //echo "data is inserted";
         }
         else {
             echo "failed to insert data to databse";
