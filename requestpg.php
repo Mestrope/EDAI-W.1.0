@@ -1,5 +1,4 @@
 <?php include("connection.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,22 +15,18 @@
                 <label>Request:</label>
                 <input type="text" id="request" name="request" required>
             </div>
-
             <div class="form-group">
                 <label>Quantity:</label>
                 <input type="text" id="quantity" name="quantity" required>
             </div>
-
             <div class="form-group">
                 <label>NGO Name:</label>
                 <input type="text" id="ngoName" name="ngoName" required>
             </div>
-
             <div class="form-group">
                 <label>NGO ID:</label>
                 <input type="text" id="ngoID" name="ngoID" required>
             </div>
-
             <div class="input_field">
                 <input type="submit" value="Send Request" class="button" name="send_btn">
             </div>
@@ -39,24 +34,30 @@
     </div>
 </body>
 </html>
-
 <?php
-    if($_POST['send_btn'])
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include("connection.php");
+
+if(isset($_POST['send_btn']))
+{
+    $request    = $_POST['request'];
+    $quantity   = $_POST['quantity'];
+    $ngoName    = $_POST['ngoName'];
+    $ngoID      = $_POST['ngoID'];
+
+    $QUERY = "INSERT INTO donation_request (request, quantity, ngoName, ngoID) VALUES (?, ?, ?, ?)";
+    $stmt = $connec->prepare($QUERY);
+    $stmt->bind_param("ssss", $request, $quantity, $ngoName, $ngoID);
+    $stmt->execute();
+
+    if($stmt->affected_rows > 0)
     {
-        $request    = $_POST['request'];
-        $quantity   = $_POST['quantity'];
-        $ngoName    = $_POST['ngoName'];
-        $ngoID      = $_POST['ngoID'];
-
-        $QUERY = "INSERT INTO donation_request values('$request','$quantity','$ngoName','$ngoID')";
-        $data = mysqli_query($connec,$QUERY);
-
-        if($data)
-        {
-            //echo "data is inserted";
-        }
-        else {
-            echo "failed to insert data to databse";
-        }
+        //echo "Data is inserted";
     }
+    else {
+        echo "Failed to insert data into the database";
+    }
+}
 ?>
