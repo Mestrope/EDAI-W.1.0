@@ -16,7 +16,7 @@ if (!isset($_SESSION["user"])) {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('childrensittingbrown.jpg') center/cover fixed;
+            background: url('/PicturesForAll/childrensittingbrown.jpg') center/cover fixed;
             color: #fff;
             display: flex;
             flex-direction: column;
